@@ -21,3 +21,13 @@ export default async function getURL(alias: string) {
     const collection = db.collection(URL_SHORTENER);
     return collection.findOne({alias : alias})
 }
+
+export async function addURL(alias: string, url: string) {
+    if (!db) {db = await connect();}
+    const collection = db.collection(URL_SHORTENER);
+
+    await collection.insertOne({
+        alias: alias,
+        url: url,
+    });
+}
