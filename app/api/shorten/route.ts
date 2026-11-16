@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import getURL from "@/lib/mongodb";
+import getURL, {addURL} from "@/lib/mongodb";
 
 export async function POST(request: Request) {
     try{
@@ -20,6 +20,7 @@ export async function POST(request: Request) {
         const existingURL = await getURL(alias);
         if (existingURL) {return NextResponse.json({ error: "This alias is already taken." });}
 
+        await addURL(alias, resUrl.href)
         return NextResponse.json({ message: "URL validated successfully!" });
     } catch (error) {
         console.log(error);
