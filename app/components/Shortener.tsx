@@ -10,7 +10,7 @@ const Container = styled.main`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2vh 2vw;
+    padding: 0;
     margin: 0;
     background: #764ba2;
     font: 400 1vw 'Poppins', sans-serif;
