@@ -22,6 +22,7 @@ export default async function getURL(alias: string) {
     return collection.findOne({alias : alias})
 }
 
+
 export async function addURL(alias: string, url: string) {
     if (!db) {db = await connect();}
     const collection = db.collection(URL_SHORTENER);
